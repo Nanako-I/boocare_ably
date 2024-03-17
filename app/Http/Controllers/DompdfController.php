@@ -61,7 +61,7 @@ class DompdfController extends Controller
         ->whereDate('created_at', $selectedDate)
         ->latest()
         ->first();
-        
+       
     $lastBloodPressure = Bloodpressure::where('people_id', $people_id)
         ->whereDate('created_at', $selectedDate)
         ->latest()
@@ -116,7 +116,7 @@ class DompdfController extends Controller
         // レコードデータを使用してビューを読み込む
     // $pdf = PDF::loadView('record_pdf', compact('recordData', 'person', 'selectedDate'));
     $pdf = PDF::loadView('record_pdf', compact('person', 'lastTemperature', 'lastBloodPressure', 'lastToilet', 'lastFood', 'lastMorningActivity', 'lastAfternoonActivity', 'selectedDate'));
-
+ 
 
         // PDFファイルをダウンロード
         return $pdf->download('recordfile.pdf');
