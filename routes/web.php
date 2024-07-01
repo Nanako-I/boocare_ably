@@ -25,6 +25,7 @@ use App\Http\Controllers\DompdfController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\AmiVoiceController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\MeetingController;
 // use Google\Cloud\Speech\V1p1beta1\StreamingRecognitionConfig;
 // use Google\Cloud\Speech\V1p1beta1\StreamingRecognizeRequest;
 
@@ -171,6 +172,15 @@ Route::post('notificationchange/{people_id}',[NotificationController::class,'upd
 // 連絡帳機能
 Route::get('chat/{people_id}', [ChatController::class, 'show'])->name('chat.show');
 Route::post('chat/{people_id}', [ChatController::class, 'store'])->name('chat.store');
+
+
+// 議事録
+Route::get('meeting', [MeetingController::class, 'show'])->name('meeting.show');
+Route::post('meeting/edit', [MeetingController::class,'store'])->name('meeting.post');
+Route::get('meetingresult', [MeetingController::class, 'edit'])->name('meeting.edit');
+Route::get('meetingchange/{id}', [MeetingController::class, 'change'])->name('meeting.change');
+Route::post('meetingchange/{id}',[MeetingController::class,'update'])->name('meeting.update');
+Route::post('meetingresult/{id}',[MeetingController::class,'destroy'])->name('meeting.delete');
 
 
 Route::get('people/{id}/edit', [PersonController::class, 'edit'])->name('people.edit');
