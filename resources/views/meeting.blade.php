@@ -136,14 +136,17 @@
 </form>
 <div id="messages" class="hidden"></div>
 
+<!--nosleep.jsの追加↓-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nosleep/0.12.0/NoSleep.min.js"></script> 
 <script type="text/javascript">
+  
 // NoSleep.jsをimportする
 // import NoSleep from 'nosleep.js';
-  
+var noSleep = new NoSleep();
 // const noSleep = new NoSleep();
 
 //NoSleepを有効にする（ディスプレイをオフにしない）-->
-// noSleep.enable();
+noSleep.enable();
   
 setTimeout(() => {
 	
