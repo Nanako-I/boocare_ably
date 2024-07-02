@@ -138,12 +138,12 @@
 
 <script type="text/javascript">
 // NoSleep.jsをimportする
-import NoSleep from 'nosleep.js';
+// import NoSleep from 'nosleep.js';
   
-const noSleep = new NoSleep();
+// const noSleep = new NoSleep();
 
 //NoSleepを有効にする（ディスプレイをオフにしない）-->
-noSleep.enable();
+// noSleep.enable();
   
 setTimeout(() => {
 	
@@ -216,6 +216,7 @@ setTimeout(() => {
   function feedDataResumeStarted() {
     log_(this.name, "EVENT: feedDataResumeStarted()");
   }
+
 
   // 音声認識サーバへの音声データの供給開始処理が完了した時に呼び出されます。
   function feedDataResumeEnded() {
