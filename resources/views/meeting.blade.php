@@ -143,7 +143,7 @@ setTimeout(() => {
 (function() {
   // <!--
   function log_(n, s) {
-   // ログメッセージをコンソールに表示する
+   // ログメッセージをコンソールに表示
     console.log(n + s);
     // ログメッセージの種類に応じて色を設定
     var color = "";
