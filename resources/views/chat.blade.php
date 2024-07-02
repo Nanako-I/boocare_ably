@@ -382,10 +382,6 @@
             relative @if($chat->user_identifier == session('user_identifier')) self ml-auto @else other @endif">
             <div style="overflow-wrap: break-word;">
                 <p style="overflow-wrap: break-word;" class="text-gray-900">{{ $chat->message }}</p>
-                @if($chat->filename && $chat->path)
-                <img alt="team" class="w-80 h-64" src="{{ asset('storage/sample/chat_photo/' . $chat->filename) }}">
-                    <!--<img src="{{ asset($chat->path) }}" alt="Chat Image">-->
-                @endif
             </div>
         </li>
     </li>
@@ -398,7 +394,7 @@
         <!--</div>-->
         </div>
         
-        <form action="{{ url('chat/'.$person->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('chat/'.$person->id) }}" method="POST">
             @csrf
         <!--追加分↓-->
         <form onsubmit= "return false">
@@ -410,14 +406,10 @@
             <input type="hidden" name="user_identifier" value={{session('user_identifier')}}>
             
                
-                <input class="hidden py-1 px-2 rounded text-center mb-2 md:mb-0 md:mr-2 md:ml-0 md:flex-initial" type="text" name="user_name" placeholder="UserName" maxlength="20" value="{{$user_name}}" required>
-               <!--画像保存↓-->
-                <label for="filename"  style="cursor: pointer;">
-                    <i class="fa-regular fa-image mt-2" style="font-size: 2em;"></i> <!-- FontAwesomeのアイコンを追加 -->
-                    <input name="filename" id="filename" type="file" style="display: none;" onChange="uploadFile1()">
-                </label>
+                <input class="py-1 px-2 rounded text-center mb-2 md:mb-0 md:mr-2 md:ml-0 md:flex-initial" type="text" name="user_name" placeholder="UserName" maxlength="20" value="{{ session('user_name') }}" required>
+               
                 <!--追加分↓-->
-                <input type= "text" id= "chatbot-text" class= "browser-default" name="message" placeholder= "テキストを入力" required style="word-wrap: break-word;">
+                <input type= "text" id= "chatbot-text" class= "browser-default" name="message" placeholder= "テキストを入力">
                 <!--<textarea class="w-full h-20 mt-2 ml-2 py-1 px-2 rounded flex-auto" type="text" name="message" placeholder="メッセージを入力" autofocus required></textarea>-->
                 
                 <!--追加分↓-->
@@ -435,15 +427,6 @@
     <!--</div>-->
     </div>
     <script>
-
-    
-    function uploadFile1() {
-        var filename = document.getElementById('filename').value;
-        if (filename.trim() !== '') {
-            document.getElementById('chatbot-text').value = '写真が送信されました';
-        }
-    }
-  
     function chatToBottom() {
     const chatField = document.getElementById('chatbot-body');
     chatField.scroll(0, chatField.scrollHeight - chatField.clientHeight);
