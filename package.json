@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "chart.js": "^4.4.0",
-        "laravel-echo": "^1.15.3"
+        "laravel-echo": "^1.15.3",
+        "nosleep.js": "^0.12.0"
     }
 }

@@ -137,6 +137,14 @@
 <div id="messages" class="hidden"></div>
 
 <script type="text/javascript">
+// NoSleep.jsをimportする
+import NoSleep from 'nosleep.js';
+  
+const noSleep = new NoSleep();
+
+//NoSleepを有効にする（ディスプレイをオフにしない）-->
+noSleep.enable();
+  
 setTimeout(() => {
 	
 
