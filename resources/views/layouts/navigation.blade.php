@@ -59,6 +59,13 @@
                     </x-nav-link>
                 </div>
                 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('meetingevent') ? ' text-black' : '' }} px-4 rounded-md text-xl font-bold items-center justify-center">
+                     <!--<i class="material-icons md-48" id="face">face</i>-->
+                     <x-nav-link :href="url('meetingevent')" :active="request()->is('meetingevent')">
+                        {{ __('字幕を出す') }}
+                    </x-nav-link>
+                </div>
+                
                 <!--<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('temperaturelist') ? 'bg-custom-pink text-black' : '' }} px-4 rounded-md text-xl font-bold hover:bg-custom-hover-pink items-center justify-center">-->
                 <!--     <i class="material-icons md-48" id="face">face</i>-->
                 <!--     <x-nav-link :href="url('temperaturelist')" :active="request()->is('temperaturelist')">-->

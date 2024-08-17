@@ -26,6 +26,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\AmiVoiceController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\MeetingeventController;
 // use Google\Cloud\Speech\V1p1beta1\StreamingRecognitionConfig;
 // use Google\Cloud\Speech\V1p1beta1\StreamingRecognizeRequest;
 
@@ -182,6 +183,8 @@ Route::get('meetingchange/{id}', [MeetingController::class, 'change'])->name('me
 Route::post('meetingchange/{id}',[MeetingController::class,'update'])->name('meeting.update');
 Route::post('meetingresult/{id}',[MeetingController::class,'destroy'])->name('meeting.delete');
 
+// 講演会用議事録
+Route::get('meetingevent', [MeetingeventController::class, 'show'])->name('meetingevent.show');
 
 Route::get('people/{id}/edit', [PersonController::class, 'edit'])->name('people.edit');
 
